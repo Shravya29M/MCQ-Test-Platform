@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h2>Previous Attempts</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Attempt ID</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for attempt in attempts %}
+                <tr>
+                    <td>{{ attempt.id }}</td>
+                    <td>{{ attempt.score }}</td>
+                    <td>
+                        <a href="{{ url_for('routes.attempt_detail', attempt_id=attempt.id) }}" class="btn btn-sm btn-info">View Responses</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

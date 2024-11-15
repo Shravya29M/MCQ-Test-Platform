@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Attempt Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Attempt Detail</h2>
+    <p>Score: {{ attempt.score }}</p>
+    
+    <h3>Responses:</h3>
+    <ul class="list-group">
+        {% for response, question in response_question_pairs %}
+            <li class="list-group-item">
+                <p>Question: {{ question.question_text }}</p>
+                <p>Your Answer:  {{ response.selected_option }}</p>
+                <p>Correct Answer: {{ question.answer }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

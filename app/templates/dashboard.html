@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Dashboard</h2>
+                </div>
+                <div class="card-body">
+                    <a href="{{ url_for('routes.new_test') }}" class="btn btn-primary mb-3">Create New Test</a>
+                    <h3>Your Tests</h3>
+                    {% for test in tests %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="{{ url_for('routes.test_detail', test_id=test.id) }}">{{ test.title }}</a></h5>
+                                <p class="card-text">{{ test.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

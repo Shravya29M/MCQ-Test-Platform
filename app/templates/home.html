@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1>Welcome to the MCQ Test Platform</h1>
+    <p class="lead">Please <a href="{{ url_for('routes.login') }}">log in</a> or <a href="{{ url_for('routes.register') }}">register</a> to continue.</p>
+</div>
+{% endblock %}

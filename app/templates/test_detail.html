@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}{{ test.title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">{{ test.title }}</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ test.description }}</p>
+                    {% if questions_exist %}
+                    <a href="{{ url_for('routes.attempt_test', test_id=test.id) }}" class="btn btn-primary">Begin Test</a>
+                    <a href="{{ url_for('routes.view_answers', test_id=test.id) }}" class="btn btn-info">View Answers</a>
+                    <a href="{{ url_for('routes.previous_attempts', test_id=test.id) }}" class="btn btn-secondary">Previous Attempts</a>
+                    {% else %}
+                        <a href="{{ url_for('routes.upload_questions', test_id=test.id) }}" class="btn btn-success">Upload Questions</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

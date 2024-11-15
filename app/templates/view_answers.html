@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h2>{{ test.title }} - Answers</h2>
+        <p>{{ test.description }}</p>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Question</th>
+                        <th scope="col">Option 1</th>
+                        <th scope="col">Option 2</th>
+                        <th scope="col">Option 3</th>
+                        <th scope="col">Option 4</th>
+                        <th scope="col">Correct Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for question in questions %}
+                        <tr>
+                            <th scope="row">{{ loop.index }}</th>
+                            <td>{{ question.question_text }}</td>
+                            <td>{{ question.option1 }}</td>
+                            <td>{{ question.option2 }}</td>
+                            <td>{{ question.option3 }}</td>
+                            <td>{{ question.option4 }}</td>
+                            <td>Option {{ question.answer }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('routes.test_detail', test_id=test.id) }}" class="btn btn-primary">Back to Test Details</a>
+    </div>
+{% endblock %}
