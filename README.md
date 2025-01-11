@@ -120,28 +120,5 @@ docker-compose exec web flask db upgrade
 2. Click on "View Answers".
 3. View all the questions, options, and correct answers.
 
-## File Structure
-
-plaintext
-mcq-test-platform/
-│
-├── app/
-│   ├── __init__.py
-│   ├── models.py
-│   ├── routes.py
-│   ├── forms.py
-│   ├── templates/
-│   └── static/
-│       └── styles.css
-│
-├── migrations/
-│
-├── venv/
-│
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── config.py
-└── README.md
 
 
